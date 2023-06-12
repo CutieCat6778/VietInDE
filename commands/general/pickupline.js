@@ -16,8 +16,7 @@ module.exports = {
             const lines = JSON.parse(linesRaw)
             const num = Math.round(Math.random() * interaction.client.usedLines.length)
             interaction.client.usedLines.splice(num, 1)
-            console.log(lines[num].content, interaction.client.usedLines.length)
-            await interaction.editReply({ content: lines[num].content })
+            await interaction.editReply({ content: lines[num] })
         } catch(e) {
             client(interaction, e)
         }

@@ -1,6 +1,7 @@
 // Require the necessary discord.js classes
 const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js');
 const { config } = require("dotenv")
+const fs = require("node:fs");
 
 // Calling the env files
 config()
@@ -10,7 +11,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 client.commands = new Collection();
 client.blockedCommands = new Array();
-client.usedLines = Array.from({length: 49}, (_, i) => i);
+const linesRaw = fs.readFileSync("./asset/pickuplines.en.json", { encoding: "utf-8" })
+const lines = JSON.parse(linesRaw)
+client.usedLines = Array.from({length: lines.length}, (_, i) => i);
 
 require("./handlers/commands.js")(client)
 require("./handlers/events.js")(client)
