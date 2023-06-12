@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0"
+  },
+  "name": "vietinde",
+  "description": "It is a bot for a community server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CutieCat6778/VietInDE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CutieCat6778/VietInDE/issues"
+  },
+  "homepage": "https://github.com/CutieCat6778/VietInDE#readme"
+}
