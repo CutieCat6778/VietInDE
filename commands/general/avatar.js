@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, PermissionsBitField } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +10,7 @@ module.exports = {
                 .setDescription("Remove the hoisting of a user!")
                 .setRequired(true)
         ),
-    permissions: 2048,
+    permissions: [PermissionsBitField.Flags.SendMessages],
     async execute(interaction) {
         try {
             await interaction.deferReply();

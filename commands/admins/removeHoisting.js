@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, PermissionsBitField } = require("discord.js");
 const regex = /^[!@#$%^&*()-_=+[\]{};:'",.<>/?\\|]/;
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
                 .setDescription("Remove the hoisting of a user!")
                 .setRequired(true)
         ),
-    permissions: 8,
+    permissions: [PermissionsBitField.Flags.Administrator],
     async execute(interaction) {
         await interaction.deferReply();
         const target = await interaction.options.getUser("target");
