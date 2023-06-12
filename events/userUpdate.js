@@ -4,12 +4,14 @@ const regex = /^[!@#$%^&*()-_=+[\]{};:'",.<>/?\\|]/;
 module.exports = {
 	name: Events.UserUpdate,
 	once: false,
-	execute: (client, oldMember, newMember) => {
-    console.log(newMember.displayName, "User update")
-		if (regex.test(newMember.displayName)) {
-			const newName = newMember.displayName.replace(regex, '');
-			newMember.setNickname(newName);
-      newMember.send({ content: `Your username has been replace from \`${newMember.displayName}\` to \`${newName.trim()}\`, in our server **${newMember.guild.name}** don't allow special characters in front of any user's name!`  })
+	execute: async (client, oldUser, newUser) => {
+    const guild = await client.guilds.fetch("1109824252334592051");
+    const member = await guild.fetch(newUser.id);
+    console.log(member.displayName, "User update")
+		if (regex.test(member.displayName)) {
+			const newName = member.displayName.replace(regex, '');
+			member.setNickname(newName);
+      member.send({ content: `Your username has been replace from \`${member.displayName}\` to \`${newName.trim()}\`, in our server **${member.guild.name}** don't allow special characters in front of any user's name!`  })
 		}
 	},
 };
