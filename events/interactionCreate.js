@@ -1,4 +1,5 @@
 const { Events } = require("discord.js");
+const { client: ErrorFunc } = require("../utils/error");
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -23,7 +24,7 @@ module.exports = {
 
       await command.execute(interaction);
     } catch (error) {
-      require('../utils/error').client(interaction, error);
+      ErrorFunc(interaction, error);
     }
   },
 };

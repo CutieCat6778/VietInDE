@@ -1,5 +1,5 @@
-module.export = {
-    client: async (interaction, error) => {
+module.exports = {
+    async client(interaction, error) {
         console.error(error)
         interaction.reply({ embeds: [{
             title: "There is an error!",
@@ -15,8 +15,8 @@ module.export = {
             logChannel.send({ content: errorStr })
         }
     },
-    server: async (client, error) => {
-        const logChannel = await interaction.guild.channels.fetch("1110163677799264367");
+    async server(client, error) {
+        const logChannel = await client.channels.fetch("1110163677799264367");
         if(logChannel) {
             const errorStr = error.toString().substring(0, 1900)
             logChannel.send({ content: errorStr })
