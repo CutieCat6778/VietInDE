@@ -7,7 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("pickupline")
         .setDescription("Generate a pickup line for you!"),
-    permissions: 0,
+    permissions: 2048,
     async execute(interaction) {
         try {
             await interaction.deferReply();

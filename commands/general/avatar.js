@@ -10,7 +10,7 @@ module.exports = {
                 .setDescription("Remove the hoisting of a user!")
                 .setRequired(true)
         ),
-    permissions: 0,
+    permissions: 2048,
     async execute(interaction) {
         try {
             await interaction.deferReply();
