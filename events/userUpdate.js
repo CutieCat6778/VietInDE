@@ -2,10 +2,10 @@ const { Events } = require('discord.js');
 const regex = /^[!@#$%^&*()-_=+[\]{};:'",.<>/?\\|]/;
 
 module.exports = {
-	name: Events.GuildMemberUpdate,
+	name: Events.UserUpdate,
 	once: false,
 	execute: (client, oldMember, newMember) => {
-    console.log(newMember.displayName, "Member update")
+    console.log(newMember.displayName, "User update")
 		if (regex.test(newMember.displayName)) {
 			const newName = newMember.displayName.replace(regex, '');
 			newMember.setNickname(newName);
