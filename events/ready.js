@@ -3,7 +3,7 @@ const { Events } = require("discord.js")
 module.exports = {
     name: Events.ClientReady,
     once: true,
-    execute: (client) => {
+    execute: () => {
         console.log("Bot is ready!")
     }
 }

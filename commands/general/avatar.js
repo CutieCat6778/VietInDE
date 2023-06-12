@@ -18,7 +18,7 @@ module.exports = {
             const user = await interaction.guild.members.fetch(target.id)
             await interaction.editReply(user.displayAvatarURL({ size: 1024, extension: "png" }))
         } catch(e) {
-
+            require("../../utils/error").client(interaction, e)
         }
     },
 };
