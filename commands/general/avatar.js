@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require("discord.js");
-const regex = /^[!@#$%^&*()-_=+[\]{};:'",.<>/?\\|]/;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,6 +10,7 @@ module.exports = {
                 .setDescription("Remove the hoisting of a user!")
                 .setRequired(true)
         ),
+    permissions: 0,
     async execute(interaction) {
         try {
             await interaction.deferReply();
