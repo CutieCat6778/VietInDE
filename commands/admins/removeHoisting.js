@@ -17,7 +17,7 @@ module.exports = {
         const target = await interaction.options.getUser("target");
         const member = await interaction.guild.members.fetch(target.id)
         let newName = "";
-        if (regex.test(member.displayName)) {
+		if (regex.test(member.displayName.toLowerCase())) {
             newName = member.displayName.replace(regex, "");
             member.setNickname(newName);
         }
